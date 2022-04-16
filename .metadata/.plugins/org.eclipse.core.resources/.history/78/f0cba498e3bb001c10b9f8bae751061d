@@ -1,0 +1,10 @@
+package org.surender.demo;
+
+public class DrawShapes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

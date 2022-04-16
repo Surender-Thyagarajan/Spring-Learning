@@ -1,0 +1,12 @@
+package org.surender.demo;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+//This class is used to demonstrate injecting objects
+public class DrawShapes1 {
+
+	ApplicationContext beanFactory = new ClassPathXmlApplicationContext("spring1.xml");
+	Triangle1 triangle1 = (Triangle1) beanFactory.getBean("Triangle1");
+	triangle1.draw();
+}

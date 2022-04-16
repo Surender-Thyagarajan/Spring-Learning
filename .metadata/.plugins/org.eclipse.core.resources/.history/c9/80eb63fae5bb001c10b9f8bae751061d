@@ -1,0 +1,4 @@
+module Demo_Java1 {
+	requires spring.core;
+	requires spring.beans;
+}

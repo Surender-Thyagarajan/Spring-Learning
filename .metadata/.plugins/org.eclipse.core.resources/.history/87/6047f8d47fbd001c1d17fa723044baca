@@ -1,0 +1,20 @@
+package org.surender.demo;
+
+public class Point {
+	public String xPoint;
+	public String yPoint;
+	
+	public int getxPoint() {
+		return xPoint;
+	}
+	public void setxPoint(int xPoint) {
+		this.xPoint = xPoint;
+	}
+	public String getyPoint() {
+		return yPoint;
+	}
+	public void setyPoint(int yPoint) {
+		this.yPoint = yPoint;
+	}
+	
+}

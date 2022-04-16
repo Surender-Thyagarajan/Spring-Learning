@@ -1,11 +1,24 @@
 package org.surender.demo;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
+import java.util.List;
+
 public class Triangle1 {
 	
 	public Point point1;
 	public Point point2;
 	public Point point3;
+	public List<String> types;
 	
+	public List<String> getTypes() {
+		return types;
+	}
+
+	public void setTypes(List<String> types) {
+		this.types = types;
+	}
+
 	public Point getPoint1() {
 		return point1;
 	}
@@ -32,5 +45,9 @@ public class Triangle1 {
 
 	public void draw() {
 		System.out.println("Triangle Drawn at ( "+getPoint1().xPoint+", "+getPoint1().yPoint+") and ("+getPoint2().xPoint+", "+getPoint2().yPoint+") and ("+getPoint3().xPoint+", "+getPoint3().yPoint+")");
+		
+		for(String type:this.types) {
+			System.out.println("Types of triangle available "+type);
+		}
 	}
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id = "Triangle1" class = "org.surender.demo.Triangle1"> 
+		<!--  ref will point to another bean class with same id or name -->
+		<!--  The purpose of idref is, it is used to pass the name (identifier) of a bean to the calling class -->
+		<!-- the idref tag allows the container to validate at deployment time that the referenced, named bean actually exists -->
+		<property name = "point1"  >
+			<!-- <idref bean = "zeroPoint" /> -->
+			<ref bean = "zeroPoint1" />
+		</property>
+		
+		<!--  Inner bean - are just to avoid keeping beans common to all. Now the point 2 is only restricted to the Triangle1 Bean -->
+		<!--  Since it is applicable only for Triangle1 we dont need id-->
+		<property name = "point2" >
+			<bean class="org.surender.demo.Point">
+				<property name="xPoint" value="20" />
+				<property name="yPoint" value="0" />
+			</bean>
+		</property>
+		<property name = "point3" >
+			<bean class="org.surender.demo.Point">
+				<property name="xPoint" value="30" />
+				<property name="yPoint" value="0" />
+			</bean>
+		</property>
+		
+		<!--  To initialize a list, set and map same set of method to be used -->
+		
+		<list id = "types" value-type = "java.lang.String">
+			<value></value>
+		</list>
+	</bean>
+	
+	<bean id = "zeroPoint" class = "org.surender.demo.Point" name = "zeroPoint1">
+		<property name = "xPoint" value = "0" />
+		<property name = "yPoint" value = "20" />
+	</bean>
+	
+	
+	<alias name = "Triangle1" alias = "Triangle1-alias" />
+</beans>

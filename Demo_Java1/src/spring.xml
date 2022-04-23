@@ -2,18 +2,44 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-	<bean id = "Triangle" class = "org.surender.demo.Triangle"> 
-		<!--  Setter Injection -->
-		<!-- <property name = "type" value= "Equilateral" /> -->
-		<!-- <property name = "height" value= "20" /> -->
-		
-		<!--  Constructor Injection -->
-		<!-- The index and type can be omitted but for function overloading it may be needed.
-		Also, if the int type is not specified 20 will be type casted automatically by spring. -->
-		
-		<constructor-arg index = "0" type = "java.lang.String" value = "Equilateral" />
-		<constructor-arg index = "1" type = "int" value = "20" />
-		
+
+<!--  Bean Inheritance is possible using the parent keyword and is done to inherit common definitions of bean
+	  Here the bean Triangle inherits other bean parentTriangle and it's definitions
+	  But notice that the Triangle bean needs more than one point and hence using merge = true it creates three objects in total
+	  By default, the merge is false and it overrides the existing parent bean definition
+	  If the parent is configured as an abstract bean.. then the parent bean is not instantiated or created... the child classes just uses the parent bean's configurations
+ -->
+
+	<bean id = "parentTriangle" class = "org.surender.demo.Triangle" abstract = "true">
+		<property name= "points">
+			<list>
+				<ref bean = "pointA" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id = "Triangle" class ="org.surender.demo.Triangle" parent="parentTriangle" >
+		<property name= "points" >
+		<list merge = "true">		
+			<ref bean = "pointB" />
+			<ref bean = "pointC" />
+		</list>
+		</property>
+	</bean>
+	
+	<bean id = "pointA" class = "org.surender.demo.Point">
+		<property name ="xPoint" value = "0" />
+		<property name ="yPoint" value = "20" />
+	</bean>
+	
+	<bean id = "pointB" class = "org.surender.demo.Point">
+		<property name ="xPoint" value = "20" />
+		<property name ="yPoint" value = "20" />
+	</bean>
+	
+	<bean id = "pointC" class = "org.surender.demo.Point">
+		<property name ="xPoint" value = "30" />
+		<property name ="yPoint" value = "20" />
 	</bean>
 	
 </beans>

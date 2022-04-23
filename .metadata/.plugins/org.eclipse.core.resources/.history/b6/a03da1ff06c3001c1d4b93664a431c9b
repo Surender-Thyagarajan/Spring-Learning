@@ -1,0 +1,24 @@
+package org.surender.demo;
+import java.util.List;
+
+import org.surender.demo.Point;
+
+public class Triangle {
+	
+	private List<Point> points = null;
+
+	public List<Point> getPoints() {
+		return points;
+	}
+
+	public void setPoints(List<Point> points) {
+		this.points = points;
+	}
+	
+	public void draw() {
+		for(Point point: points) {
+			System.out.println("Points : ("+point.getxPoint()+","+point.getyPoint()+")");
+		}
+	}
+	
+}

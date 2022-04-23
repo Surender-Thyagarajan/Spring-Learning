@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<bean id = "parentTriangle" class = "org.surender.demo.Triangle">
+		<property name= "points">
+			<list>
+				<ref bean = "pointA" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id = "Triangle" class ="org.surender.demo.Triangle" parent="parentTriangle">
+		<property name= "points" merge = "true">
+		<list>		
+			<ref bean = "pointB" />
+			<ref bean = "pointC" />
+		</list>
+		</property>
+	</bean>
+	
+	<bean id = "pointA" class = "org.surender.demo.Point">
+		<property name ="xPoint" value = "0" />
+		<property name ="yPoint" value = "20" />
+	</bean>
+	
+	<bean id = "pointB" class = "org.surender.demo.Point">
+		<property name ="xPoint" value = "20" />
+		<property name ="yPoint" value = "20" />
+	</bean>
+	
+	<bean id = "pointC" class = "org.surender.demo.Point">
+		<property name ="xPoint" value = "30" />
+		<property name ="yPoint" value = "20" />
+	</bean>
+	
+</beans>

@@ -1,42 +1,31 @@
 package org.surender.demo;
+import java.util.List;
 
-public class Triangle {
+import org.springframework.beans.factory.BeanNameAware;
+import org.surender.demo.Point;
+
+public class Triangle implements BeanNameAware {
 	
-	private String type;
-	private int height;
-	
-	public Triangle(String type) {
-		this.type= type;
-	}
-	
-	public Triangle(String type,int height) {
-		this.type = type;
-		this.height = height;
-	}
-	
-	public Triangle(int height) {
-		this.height= height;
-	}
-	
-	public int getHeight() {
-		return height;
+	private List<Point> points = null;
+
+	public List<Point> getPoints() {
+		return points;
 	}
 
-	//Setter injection
-	/*
-	 * public void setHeight(int height) { this.height = height; }
-	 */
-
-	public String getType() {
-		return type;
+	public void setPoints(List<Point> points) {
+		this.points = points;
 	}
 	
-	//Setter injection
-	/*
-	 * public void setType(String type) { this.type = type; }
-	 */
-
 	public void draw() {
-		System.out.println("Triangle Drawn of type "+type+" and height "+height);
+		for(Point point: points) {
+			System.out.println("Points : ("+point.getxPoint()+","+point.getyPoint()+")");
+		}
 	}
+
+	@Override
+	public void setBeanName(String arg0) {
+		System.out.println("The bean used "+arg0);
+		
+	}
+	
 }

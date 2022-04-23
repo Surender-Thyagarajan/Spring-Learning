@@ -7,8 +7,10 @@
 	  Autowiring byName matches the dependency's name with the bean id if any automatically. (ie) point1 obj mathces point1 bean
 	  Autowiring byType matches the dependency's type (class/datatype)) with the bean's type if any. But this method is applicable only if there is only one dependency for the specified type. If two or more is present for the same type then spring gets confused.
  -->
+ 
+ <!--  By default the scope is singleton but if needed to override it can be done by using scope -->
 
-<bean id = "Triangle2" class = "org.surender.demo.Triangle2" autowire = "byName">
+<bean id = "Triangle2" class = "org.surender.demo.Triangle2" autowire = "byName" scope ="prototype">
 
 
 </bean>

@@ -8,24 +8,29 @@
 	  Autowiring byType matches the dependency's type (class/datatype)) with the bean's type if any. But this method is applicable only if there is only one dependency for the specified type. If two or more is present for the same type then spring gets confused.
  -->
  
- <!--  By default the scope is singleton but if needed to override it can be done by using scope -->
+ <!--  By default the scope is singleton but if needed to override it can be done by using scope 
+ 	   The child and parent beans must follow the same scope otherwise the required scope will not happen.
+ 	   For eg: here Triangle2 has a singleton scope whereas all the points have prototype scope. So here singleton will only be followed since its the parent bean's scope
+ 	   Suppose if point1 Beans have to be prototype then you can use the applicationcontextaware interface in the Triangle2 class 
+ 
+ -->
 
-<bean id = "Triangle2" class = "org.surender.demo.Triangle2" autowire = "byName" scope ="prototype">
+<bean id = "Triangle2" class = "org.surender.demo.Triangle2" autowire = "byName" scope ="singleton">
 
 
 </bean>
 
-<bean id = "point1" class = "org.surender.demo.Point" >
+<bean id = "point1" class = "org.surender.demo.Point" scope = "prototype">
 <property name = "xPoint" value = "0" />
 <property name = "yPoint" value = "20" />
 </bean>
 
-<bean id = "point2" class = "org.surender.demo.Point" >
+<bean id = "point2" class = "org.surender.demo.Point" scope = "prototype">
 <property name = "xPoint" value = "20" />
 <property name = "yPoint" value = "20" />
 </bean>
 
-<bean id = "point3" class = "org.surender.demo.Point" >
+<bean id = "point3" class = "org.surender.demo.Point" scope = "prototype">
 <property name = "xPoint" value = "0" />
 <property name = "yPoint" value = "30" />
 </bean>

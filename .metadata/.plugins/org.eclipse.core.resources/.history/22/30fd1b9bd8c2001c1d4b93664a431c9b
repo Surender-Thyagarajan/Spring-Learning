@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+<!--  Autowiring removes manual dependency reference
+	  Autowiring byName matches the dependency's name with the bean id if any automatically. (ie) point1 obj mathces point1 bean
+	  Autowiring byType matches the dependency's type (class/datatype)) with the bean's type if any. But this method is applicable only if there is only one dependency for the specified type. If two or more is present for the same type then spring gets confused.
+ -->
+ 
+ <!--  By default the scope is singleton but if needed to override it can be done by using scope -->
+
+<bean id = "Triangle2" class = "org.surender.demo.Triangle2" autowire = "byName" scope ="prototype">
+
+
+</bean>
+
+<bean id = "point1" class = "org.surender.demo.Point" scope = "prototype" >
+<property name = "xPoint" value = "0" />
+<property name = "yPoint" value = "20" />
+</bean>
+
+<bean id = "point2" class = "org.surender.demo.Point" >
+<property name = "xPoint" value = "20" />
+<property name = "yPoint" value = "20" />
+</bean>
+
+<bean id = "point3" class = "org.surender.demo.Point" >
+<property name = "xPoint" value = "0" />
+<property name = "yPoint" value = "30" />
+</bean>
+<alias name = "Triangle2" alias = "Triangle-autowire" />
+</beans>

@@ -2,5 +2,7 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
     <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContextAware"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.BeanNameAware"/>
 </qualifiedTypeNameHistroy>

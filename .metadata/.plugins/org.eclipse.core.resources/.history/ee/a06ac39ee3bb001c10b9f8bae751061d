@@ -1,8 +1,0 @@
-package org.surender.demo;
-
-public class Triangle {
-	
-	public void draw() {
-		System.out.prinltn("Triangle Drawn");
-	}
-}

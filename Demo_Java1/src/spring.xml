@@ -10,7 +10,7 @@
 	  If the parent is configured as an abstract bean.. then the parent bean is not instantiated or created... the child classes just uses the parent bean's configurations
  -->
 
-	<bean id = "parentTriangle" class = "org.surender.demo.Triangle" abstract = "true">
+	<bean id = "parentTriangle" class = "org.surender.demo.Triangle" abstract = "true" init-method = "HelloWorld">
 		<property name= "points">
 			<list>
 				<ref bean = "pointA" />
